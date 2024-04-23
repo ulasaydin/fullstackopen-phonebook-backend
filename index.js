@@ -70,6 +70,18 @@ app.post("/api/persons", (request, response) => {
     number: body.number,
   };
 
+  if (!person.name || !person.number) {
+    return response.status(400).json({
+      error: "name or number missing",
+    });
+  }
+
+  if (persons.find((p) => p.name === person.name)) {
+    return response.status(400).json({
+      error: "name must be unique",
+    });
+  }
+
   persons = persons.concat(person);
 
   response.json(person);
