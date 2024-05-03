@@ -8,17 +8,10 @@ This repository contains the backend code for a simple phonebook application as 
 
 The application is deployed on Fly.io. You can access the live application at the following URLs:
 
-- **Homepage**: [Access the homepage](https://fullstackopen-phonebook-back-end.fly.dev)
+- **Homepage**: https://fullstackopen-phonebook-back-end.fly.dev
 
-  - This link directs you to the root of the application, where you can navigate to various parts of the API.
+- **Phonebook Info**: https://fullstackopen-phonebook-back-end.fly.dev/info
 
-- **Phonebook Info**: [View phonebook statistics](https://fullstackopen-phonebook-back-end.fly.dev/info)
+- **All Phonebook Entries**: https://fullstackopen-phonebook-back-end.fly.dev/api/persons
 
-  - This page displays the current count of entries in the phonebook and the server time at which the request was processed.
-
-- **All Phonebook Entries**: [View all entries](https://fullstackopen-phonebook-back-end.fly.dev/api/persons)
-
-  - Retrieve a list of all phonebook entries currently stored in the database.
-
-- **Single Phonebook Entry**: [View entry with ID 1](https://fullstackopen-phonebook-back-end.fly.dev/api/persons/1)
-  - This link fetches details of the phonebook entry with ID 1.
+- **Single Phonebook Entry**: (View entry with ID 1) https://fullstackopen-phonebook-back-end.fly.dev/api/persons/1
