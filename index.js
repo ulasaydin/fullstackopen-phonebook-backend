@@ -49,11 +49,11 @@ const generateId = () => {
 app.post("/api/persons", (request, response) => {
   const body = request.body;
 
-  const person = {
-    id: generateId(),
+  const person = new Person({
+    // id: generateId(),
     name: body.name,
     number: body.number,
-  };
+  });
 
   if (!person.name || !person.number) {
     return response.status(400).json({
@@ -61,15 +61,18 @@ app.post("/api/persons", (request, response) => {
     });
   }
 
-  if (persons.find((p) => p.name === person.name)) {
-    return response.status(400).json({
-      error: "name must be unique",
-    });
-  }
+  // if (persons.find((p) => p.name === person.name)) {
+  //   return response.status(400).json({
+  //     error: "name must be unique",
+  //   });
+  // }
 
-  persons = persons.concat(person);
+  // persons = persons.concat(person);
 
-  response.json(person);
+  // response.json(person);
+  person.save().then((savedPerson) => {
+    response.json(savedPerson);
+  });
 });
 
 const PORT = process.env.PORT || 3001;
