@@ -18,12 +18,14 @@ app.get("/api/persons", (request, response, next) => {
 
 app.get("/info", (request, response, next) => {
   const date = new Date();
-  const personCount = persons.length;
-  const infoMessage = personCount === 1 ? "person" : "people";
-  response
-    .send(
-      `<p>Phonebook has info for ${personCount} ${infoMessage}</p><p>${date}</p>`
-    )
+  Person.countDocuments({})
+    .then((count) => {
+      const personCount = count;
+      const infoMessage = personCount === 1 ? "person" : "people";
+      response.send(
+        `<p>Phonebook has info for ${personCount} ${infoMessage}</p><p>${date}</p>`
+      );
+    })
     .catch((error) => next(error));
 });
 
